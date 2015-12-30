@@ -22,6 +22,7 @@ import in.movies.niranjan.com.movieproj.api.MovieProjApi;
 import in.movies.niranjan.com.movieproj.api.MovieProjService;
 import in.movies.niranjan.com.movieproj.api.data.MoviesResponse;
 import in.movies.niranjan.com.movieproj.models.Movie;
+import in.movies.niranjan.com.movieproj.utils.AppConstants;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -47,7 +48,7 @@ public class MoviesListFragment extends BaseFragment implements RecyclerItemClic
         movieListView.setHasFixedSize(true);
         movieListView.setLayoutManager(new LinearLayoutManager(getActivity()));
         noItemsFound = (TextView) getView().findViewById(R.id.no_items);
-        fetchMoviesList(getMovieProjService().getUpComingMovies());
+        fetchMoviesList(getMovieProjService().getPopularMovies());
     }
 
     private void fetchMoviesList(Observable<MoviesResponse> moviesResponseObservable) {
@@ -68,6 +69,7 @@ public class MoviesListFragment extends BaseFragment implements RecyclerItemClic
     private void buildMoviesList(List<Movie> movies) {
         adapter = (MovieListAdapter) movieListView.getAdapter();
         noItemsFound.setVisibility(View.GONE);
+        movieListView.setVisibility(View.VISIBLE);
         if (adapter != null && movies.size() > 0) {
             adapter.updateMovieList(movies);
         } else if (movies.size() > 0) {
@@ -75,6 +77,7 @@ public class MoviesListFragment extends BaseFragment implements RecyclerItemClic
             movieListView.setAdapter(adapter);
         } else {
             noItemsFound.setVisibility(View.VISIBLE);
+            movieListView.setVisibility(View.GONE);
         }
     }
 
@@ -106,13 +109,10 @@ public class MoviesListFragment extends BaseFragment implements RecyclerItemClic
                 fetchMoviesList(getMovieProjService().getTopRatedMovies());
                 break;
             case R.id.my_favorite:
-                //fetchMoviesList(getMovieProjService().getmy());
+                buildMoviesList(fetchFavoriteMovies());
                 break;
             case R.id.watch_list:
-               // fetchMoviesList(getMovieProjService().get());
-                break;
-            default:
-                fetchMoviesList(getMovieProjService().getPopularMovies());
+               buildMoviesList(fetchWatchedMovies());
                 break;
         }
 
@@ -121,5 +121,10 @@ public class MoviesListFragment extends BaseFragment implements RecyclerItemClic
 
     @Override
     public void onItemClick(Movie movie) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(AppConstants.MOVIE_ID, movie.movieId);
+        MovieDetailsFragment movieDetailsFragment = new MovieDetailsFragment();
+        movieDetailsFragment.setArguments(bundle);
+        launchFragment(movieDetailsFragment, movieDetailsFragment.getTag());
     }
 }

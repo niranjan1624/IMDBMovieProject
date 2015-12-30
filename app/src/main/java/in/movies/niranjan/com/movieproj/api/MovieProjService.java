@@ -46,7 +46,7 @@ public interface MovieProjService {
 
     //Get the details of a movie as per id
     @GET("/movie/{id}?api_key="+ AppConstants.API_KEY)
-    Observable<MovieDetail> getMovieDetailsById(@Path("id") int imdbId);
+    Observable<MovieDetail> getMovieDetailsById(@Path("id") int movieId);
 
     //Get the cast and crew information for a specific movie id.
     @GET("/movie/{id}/credits?api_key="+ AppConstants.API_KEY)

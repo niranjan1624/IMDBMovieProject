@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MovieProj</string>
+    <string name="app_name">Movie Proj</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -17,4 +17,9 @@
     <string name="top_rated">Top Rated</string>
     <string name="movies">Movies</string>
     <string name="no_items">No Moives Found!</string>
+    <string name="posters">Posters</string>
+    <string name="trailers">Trailers</string>
+    <string name="casts">Casts</string>
+    <string name="crews">Crews</string>
+    <string name="crew">Crew</string>
 </resources>

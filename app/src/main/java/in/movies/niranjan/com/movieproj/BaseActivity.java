@@ -71,8 +71,19 @@ public class BaseActivity extends AppCompatActivity implements FragmentListener 
 
     @Override
     public void showProgressBar() {
-        if (progressLayout != null)
+
+        if (progressLayout != null) {
             progressLayout.setVisibility(View.VISIBLE);
+            progressLayout.setBackgroundColor(getResources().getColor(R.color.transperant));
+        }
+
+    }
+    @Override
+    public void showProgressBarWithBackground() {
+        if (progressLayout != null) {
+            progressLayout.setVisibility(View.VISIBLE);
+            progressLayout.setBackgroundColor(getResources().getColor(R.color.white));
+        }
     }
     @Override
     public void hideProgressBar() {

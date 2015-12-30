@@ -17,6 +17,8 @@ public interface FragmentListener {
 
     void showProgressBar();
 
+    void showProgressBarWithBackground();
+
     void hideProgressBar();
 
     void showNetworkDialog();

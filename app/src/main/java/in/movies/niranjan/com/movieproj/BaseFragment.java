@@ -8,8 +8,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toast;
 
+import com.activeandroid.query.Select;
+
+import java.util.List;
+
 import in.movies.niranjan.com.movieproj.Interface.ActionEventListener;
 import in.movies.niranjan.com.movieproj.Interface.FragmentListener;
+import in.movies.niranjan.com.movieproj.models.Movie;
 import retrofit.RetrofitError;
 import rx.functions.Action1;
 
@@ -76,12 +81,30 @@ public class BaseFragment extends android.support.v4.app.Fragment implements Act
         menu.clear();
     }
 
+    public Movie getMovieByIdFromDB(int movieId) {
+        List<Movie> movies = new Select().from(Movie.class).where("movie_id = ?", movieId).execute();
+        if(movies.size() > 0)
+            return movies.get(0);
+        else
+            return null;
+    }
+    public List<Movie> fetchFavoriteMovies() {
+        return new Select().from(Movie.class).where("is_favorite = ?", true).execute();
+    }
+    public List<Movie> fetchWatchedMovies() {
+         return new Select().from(Movie.class).where("is_watchlist = ?", true).execute();
+    }
+
     protected void showProgressBar() {
         if (mActivity != null) {
             mActivity.showProgressBar();
         }
     }
-
+    protected void showProgressBarWithBackground() {
+        if (mActivity != null) {
+            mActivity.showProgressBarWithBackground();
+        }
+    }
     protected void hideProgressBar() {
         if (mActivity != null) {
             mActivity.hideProgressBar();
