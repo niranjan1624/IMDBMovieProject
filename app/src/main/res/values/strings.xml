@@ -6,5 +6,14 @@
     <string name="netwrok_error">Network Error</string>
     <string name="error_internet_conn">Looks like you are not connected to network. Please check your internet connection.</string>
     <string name="generic_error">Error</string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_home">IMDB</string>
+    <string name="my_favorite">My Favorites</string>
+    <string name="watch_list">My Watchlist</string>
+    <string name="refresh">Refresh</string>
+    <string name="popular">Most Popular</string>
+    <string name="upcoming">Upcoming Movies</string>
+    <string name="latest">Latest Movies</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="movies">Movies</string>
 </resources>
