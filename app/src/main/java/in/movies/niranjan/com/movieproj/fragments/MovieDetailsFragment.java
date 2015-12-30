@@ -155,14 +155,19 @@ public class MovieDetailsFragment extends BaseFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Show from database
+        MoviesListFragment moviesListFragment = new MoviesListFragment();
+        Bundle bundle = new Bundle();
         switch (item.getItemId()) {
             case R.id.my_favorite:
-
+                bundle.putInt("movies_list", 0);
                 break;
-            case R.id.my_watch:
+            case R.id.watch_list:
+                bundle.putInt("movies_list", 1);
                 break;
 
         }
+        moviesListFragment.setArguments(bundle);
+        launchFragment(moviesListFragment, moviesListFragment.getTag());
         return super.onOptionsItemSelected(item);
     }
 }

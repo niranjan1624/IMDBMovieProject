@@ -48,7 +48,15 @@ public class MoviesListFragment extends BaseFragment implements RecyclerItemClic
         movieListView.setHasFixedSize(true);
         movieListView.setLayoutManager(new LinearLayoutManager(getActivity()));
         noItemsFound = (TextView) getView().findViewById(R.id.no_items);
-        fetchMoviesList(getMovieProjService().getPopularMovies());
+        if(getArguments() != null) {
+            if(getArguments().getInt("movies_list") == 0)
+                buildMoviesList(fetchFavoriteMovies());
+            else
+                buildMoviesList(fetchWatchedMovies());
+        } else {
+            fetchMoviesList(getMovieProjService().getPopularMovies());
+        }
+
     }
 
     private void fetchMoviesList(Observable<MoviesResponse> moviesResponseObservable) {
@@ -112,7 +120,7 @@ public class MoviesListFragment extends BaseFragment implements RecyclerItemClic
                 buildMoviesList(fetchFavoriteMovies());
                 break;
             case R.id.watch_list:
-               buildMoviesList(fetchWatchedMovies());
+                buildMoviesList(fetchWatchedMovies());
                 break;
         }
 
