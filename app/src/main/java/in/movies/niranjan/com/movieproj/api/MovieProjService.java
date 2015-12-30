@@ -34,6 +34,10 @@ public interface MovieProjService {
     @GET("/movie/popular?api_key="+ AppConstants.API_KEY)
     Observable<MoviesResponse> getPopularMovies();
 
+    // no api to get latest movies so using popular movies api
+    @GET("/movie/popular?api_key="+ AppConstants.API_KEY)
+    Observable<MoviesResponse> getLatestMovies();
+
    /* Get the list of top rated movies.
       By default, this list will only include movies that have 10 or more votes.
       This list refreshes every day.*/

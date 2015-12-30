@@ -6,4 +6,5 @@ package in.movies.niranjan.com.movieproj.utils;
 public class AppConstants {
 
     public static final String API_KEY = "8496be0b2149805afa458ab8ec27560c";
+    public static final String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w500";
 }

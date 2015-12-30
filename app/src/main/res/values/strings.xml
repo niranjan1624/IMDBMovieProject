@@ -16,4 +16,5 @@
     <string name="now_playing">Now Playing</string>
     <string name="top_rated">Top Rated</string>
     <string name="movies">Movies</string>
+    <string name="no_items">No Moives Found!</string>
 </resources>

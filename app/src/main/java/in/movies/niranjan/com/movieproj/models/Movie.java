@@ -28,7 +28,7 @@ public class Movie {
     public String overview;
 
     @SerializedName("popularity")
-    public Double popularity;
+    public float popularity;
 
     @SerializedName("poster_path")
     public String posterPath;
