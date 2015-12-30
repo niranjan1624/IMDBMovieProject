@@ -9,7 +9,7 @@ import retrofit.android.AndroidLog;
  * Created by Niranjan on 12/29/2015.
  */
 public class MovieProjApi {
-    private static String SERVER_URL = "http://api.themoviedb.org/";
+    private static String SERVER_URL = "http://api.themoviedb.org/3";
 
     private static MovieProjApi sInstance;
     private MovieProjService mService;

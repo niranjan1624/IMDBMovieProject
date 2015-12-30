@@ -1,19 +1,41 @@
 package in.movies.niranjan.com.movieproj.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import in.movies.niranjan.com.movieproj.BaseActivity;
 import in.movies.niranjan.com.movieproj.R;
+import in.movies.niranjan.com.movieproj.api.MovieProjApi;
+import in.movies.niranjan.com.movieproj.api.data.ImagePosterResponse;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        test();
     }
+
+    private void test() {
+
+        MovieProjApi.getService().getImagesAndPostersByMovieId(157336).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<ImagePosterResponse>() {
+                    @Override
+                    public void call(ImagePosterResponse imagePosterResponse) {
+                        hideProgressBar();
+                        Log.d("DEBUG_1", imagePosterResponse.backDrops + "");
+                    }
+                }, errorHandler);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
