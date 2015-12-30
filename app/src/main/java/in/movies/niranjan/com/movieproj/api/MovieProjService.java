@@ -59,7 +59,7 @@ public interface MovieProjService {
     Observable<MoviesResponse> getRatedMoviesBySessionId(@Path("guest_session_id") int sessionId);
 
     //Get the images, posters for a specific movie id.
-    @GET("/movie/{id}/image?api_key="+ AppConstants.API_KEY)
+    @GET("/movie/{id}/images?api_key="+ AppConstants.API_KEY)
     Observable<ImagePosterResponse> getImagesAndPostersByMovieId(@Path("id") int movieId);
 
     //Get the videos (trailers, teasers, clips, etc...) for a specific movie id.

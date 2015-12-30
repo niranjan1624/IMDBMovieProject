@@ -9,6 +9,7 @@ import in.movies.niranjan.com.movieproj.BaseActivity;
 import in.movies.niranjan.com.movieproj.R;
 import in.movies.niranjan.com.movieproj.api.MovieProjApi;
 import in.movies.niranjan.com.movieproj.api.data.ImagePosterResponse;
+import in.movies.niranjan.com.movieproj.fragments.MoviesListFragment;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
@@ -21,6 +22,10 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
 
         test();
+
+        MoviesListFragment moviesListFragment = new MoviesListFragment();
+        navigateToFragment(moviesListFragment, moviesListFragment.getTag(),true);
+
     }
 
     private void test() {
@@ -35,7 +40,6 @@ public class HomeActivity extends BaseActivity {
                     }
                 }, errorHandler);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
