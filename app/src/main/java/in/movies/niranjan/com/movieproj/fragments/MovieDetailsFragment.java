@@ -293,16 +293,16 @@ public class MovieDetailsFragment extends BaseFragment {
 
     public void setMyFavoriteImage(ImageView myFavorite) {
         if(movie.isFavorite)
-            Picasso.with(getActivity()).load(R.mipmap.favorite_enable_normal).into(myFavorite);
+           myFavorite.setImageResource(R.mipmap.favorite_enable_normal);
         else
-            Picasso.with(getActivity()).load(R.mipmap.favorite_disable_normal).into(myFavorite);
+            myFavorite.setImageResource(R.mipmap.favorite_disable_normal);
     }
 
     public void setMyWatchlistImage(ImageView myWatchlist) {
         if(movie.isWatchlist)
-            Picasso.with(getActivity()).load(R.mipmap.watchlist_enable_normal).into(myWatchlist);
+            myWatchlist.setImageResource(R.mipmap.watchlist_enable_normal);
         else
-            Picasso.with(getActivity()).load(R.mipmap.watchlist_disable_normal).into(myWatchlist);
+            myWatchlist.setImageResource(R.mipmap.watchlist_disable_normal);
     }
 
     public void setMyFavorite() {
