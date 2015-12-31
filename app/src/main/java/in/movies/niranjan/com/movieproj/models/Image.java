@@ -10,7 +10,7 @@ public class Image {
     @SerializedName("file_path")
     public String filePath;
 
-    @SerializedName("iso_639_1")
+    /*@SerializedName("iso_639_1")
     public String iso6391;
 
     @SerializedName("aspect_ratio")
@@ -26,5 +26,5 @@ public class Image {
     public int width;
 
     @SerializedName("vote_count")
-    public Double voteCount;
+    public Double voteCount;*/
 }

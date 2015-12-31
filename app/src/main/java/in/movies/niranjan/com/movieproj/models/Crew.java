@@ -7,12 +7,6 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Crew {
 
-    @SerializedName("department")
-    public String department;
-
-    @SerializedName("credit_id")
-    public String creditId;
-
     @SerializedName("id")
     public int movieId;
 
@@ -24,4 +18,10 @@ public class Crew {
 
     @SerializedName("profile_path")
     public String profilePath;
+
+   /* @SerializedName("department")
+    public String department;
+
+    @SerializedName("credit_id")
+    public String creditId;*/
 }

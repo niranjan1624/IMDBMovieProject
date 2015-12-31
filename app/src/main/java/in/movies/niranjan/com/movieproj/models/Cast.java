@@ -7,24 +7,25 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Cast {
 
-    @SerializedName("cast_id")
-    public int castId;
-
     @SerializedName("character")
     public String character;
 
-    @SerializedName("credit_id")
-    public String creditId;
-
-    @SerializedName("id")
-    public int movieId;
+    @SerializedName("profile_path")
+    public String profilePath;
 
     @SerializedName("name")
     public String actorName;
 
-    @SerializedName("order")
-    public int popularity;
+    /*@SerializedName("credit_id")
+    public String creditId;
 
-    @SerializedName("profile_path")
-    public String profilePath;
+    @SerializedName("cast_id")
+    public int castId;
+
+    @SerializedName("id")
+    public int movieId;
+
+    @SerializedName("order")
+    public int popularity;*/
+
 }
