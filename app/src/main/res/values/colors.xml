@@ -28,4 +28,5 @@
     <color name="material_grey_900">#ff212121</color>
     <color name="light_green">#32CD32</color>
     <color name="transperant">#80FFFFFF</color>
+    <color name="blue">#0000FF</color>
 </resources>
